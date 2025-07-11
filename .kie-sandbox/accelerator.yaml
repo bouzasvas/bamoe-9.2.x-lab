@@ -1,0 +1,9 @@
+# This file was automatically created by BAMOE Developer Tools for VS Code. Please don't modify it.
+name: Quarkus (Full)
+iconUrl: ''
+gitRepositoryUrl: https://github.com/IBM/bamoe-canvas-quarkus-accelerator
+gitRepositoryGitRef: 9.2.1-ibm-0005-quarkus-full
+dmnDestinationFolder: src/main/resources/dmn
+bpmnDestinationFolder: src/main/resources/bpmn
+otherFilesDestinationFolder: src/main/resources/others
+appliedAt: '2025-07-11T13:50:53.198Z'

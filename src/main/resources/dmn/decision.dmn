@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20230324/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/" namespace="https://kie.apache.org/dmn/_23872C27-A7E3-4978-8256-1729ED5481CC" id="_12143553-AC3C-44B3-B65C-AECE39B4B748" name="decision">
+  <itemDefinition id="_524E0E6C-F8CC-4275-85F0-BB2253875ECD" name="Person" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+    <itemComponent id="_6AB365F7-667A-4AF6-9E19-E647DD7EFF71" name="dob" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>date</typeRef>
+    </itemComponent>
+    <itemComponent id="_62265C86-6A02-4395-ACBA-DDF18D5B908B" name="name" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <decision name="Is Adult?" id="_841E32C7-CD0B-46EA-BEE8-3C64B82B2A0C">
+    <variable id="_68B6566A-FE87-41BF-B127-26CC0313ACF7" typeRef="boolean" name="Is Adult?" />
+    <informationRequirement id="_B18FCC4C-8217-4368-901D-87B2079D3134">
+      <requiredInput href="#_0DC849AC-ABD6-4ABC-8902-A958B5D0BF0D" />
+    </informationRequirement>
+    <literalExpression id="_469D2843-0F1B-4959-8865-AB35A6123EE3" typeRef="boolean" label="Is Adult?">
+      <text>years and months duration(date(Person.dob), today()) &gt; duration(&quot;P18Y&quot;) </text>
+    </literalExpression>
+  </decision>
+  <decision name="Authorized" id="_B4A40B5D-CF21-4C02-9CFE-DD2E3186E876">
+    <variable id="_D06EA707-2B9C-43AC-B28A-2952E4A4B51C" typeRef="boolean" name="Authorized" />
+    <informationRequirement id="_B3FC1158-DCC6-448B-8527-A466065403B7">
+      <requiredDecision href="#_841E32C7-CD0B-46EA-BEE8-3C64B82B2A0C" />
+    </informationRequirement>
+    <literalExpression id="_969C1C67-FC34-4B6D-8767-EE0C126648CB" typeRef="boolean" label="Authorized">
+      <text>Is Adult?</text>
+    </literalExpression>
+  </decision>
+  <inputData name="Person" id="_0DC849AC-ABD6-4ABC-8902-A958B5D0BF0D">
+    <variable name="Person" id="_40310B98-C893-483C-A9DC-38CD9131A91A" typeRef="Person" />
+  </inputData>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_B46CEE25-658D-440D-A65B-BD43CB9B3013" name="Default DRD" useAlternativeInputDataShape="false">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_469D2843-0F1B-4959-8865-AB35A6123EE3">
+            <kie:width>648</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_969C1C67-FC34-4B6D-8767-EE0C126648CB">
+            <kie:width>259</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="_F744603F-507A-420F-86C0-A5422BD4154E" dmnElementRef="_841E32C7-CD0B-46EA-BEE8-3C64B82B2A0C" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="480" y="340" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_F297FB1E-3CFE-4E3E-8FAF-C952321D536E" dmnElementRef="_B4A40B5D-CF21-4C02-9CFE-DD2E3186E876" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="480" y="140" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_2E9672D4-BB91-47D7-933C-69437A57B413" dmnElementRef="_0DC849AC-ABD6-4ABC-8902-A958B5D0BF0D" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="480" y="560" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_9E863973-0647-4096-A398-F06D8E9D3FE8-AUTO-TARGET" dmnElementRef="_B3FC1158-DCC6-448B-8527-A466065403B7" sourceElement="_F744603F-507A-420F-86C0-A5422BD4154E" targetElement="_F297FB1E-3CFE-4E3E-8FAF-C952321D536E">
+        <di:waypoint x="560" y="380" />
+        <di:waypoint x="560" y="180" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_07728B8B-CF89-4FD4-A0BF-91FBD7D72F31" dmnElementRef="_B18FCC4C-8217-4368-901D-87B2079D3134" sourceElement="_2E9672D4-BB91-47D7-933C-69437A57B413" targetElement="_F744603F-507A-420F-86C0-A5422BD4154E">
+        <di:waypoint x="560" y="600" />
+        <di:waypoint x="560" y="380" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
