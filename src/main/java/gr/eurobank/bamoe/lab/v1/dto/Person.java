@@ -34,10 +34,6 @@ public class Person {
     public Boolean getIsValid() {
         return isValid;
     }
-    
-    public Boolean isIsValid() {
-        return isValid;
-    }
 
     public void setIsValid(Boolean isValid) {
         this.isValid = isValid;
