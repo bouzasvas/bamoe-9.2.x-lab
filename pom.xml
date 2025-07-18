@@ -20,7 +20,7 @@
 
     <version.quarkus>3.20.1</version.quarkus>
     <version.bamoe>9.2.1-ibm-0005</version.bamoe>
-    
+
     <version.io.quarkiverse.embedded.postgresql>0.3.0</version.io.quarkiverse.embedded.postgresql>
     <version.io.quarkiverse.quarkus-oidc-proxy>0.2.2</version.io.quarkiverse.quarkus-oidc-proxy>
   </properties>
@@ -109,6 +109,14 @@
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-jdbc-h2</artifactId>
     </dependency>
+    <!-- <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-jdbc-mssql</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.ibm.bamoe</groupId>
+      <artifactId>bamoe-mssql-mappings</artifactId> -->
+    <!-- </dependency> -->
 
     <!-- Quarkus -->
     <dependency>
@@ -151,6 +159,11 @@
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-junit5</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.kie.kogito</groupId>
+      <artifactId>kogito-scenario-simulation</artifactId>
       <scope>test</scope>
     </dependency>
   </dependencies>
@@ -226,5 +239,5 @@
       </properties>
     </profile>
   </profiles>
-  
+
 </project>
