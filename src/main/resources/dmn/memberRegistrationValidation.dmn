@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20230324/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/" namespace="https://kie.apache.org/dmn/memberRegistrationValidation" id="memberRegistrationValidation" name="memberRegistrationValidation">
+  <itemDefinition id="_B347529A-D993-4FC0-9F03-8A5442CB1B2E" name="tPerson" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+    <itemComponent id="_A72B9403-6676-441B-A7FF-FA6D79795277" name="dob" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>date</typeRef>
+    </itemComponent>
+    <itemComponent id="_6D62327E-20C4-49A5-8C5D-D3FD8CEA7B28" name="name" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <decision name="Is Valid" id="_20AEAF97-9E3A-4CDC-A370-16D202A32608">
+    <variable id="_8BE43213-2DD0-4098-9499-7C9D2C960073" typeRef="boolean" name="Is Valid" />
+    <informationRequirement id="_5BD4CB7F-7E4F-47F1-99F0-F905206CA309">
+      <requiredInput href="#_80AD3D4B-EA00-4991-A5E4-B2E3C2EAFD45" />
+    </informationRequirement>
+    <literalExpression id="_5F84D6DF-BD3B-4CC1-A3B3-83960EB2EADB" typeRef="boolean" label="Is Valid">
+      <text>years and months duration(New Member.dob, today()) &gt;= duration(&quot;P18Y&quot;)</text>
+    </literalExpression>
+  </decision>
+  <decision name="Member Result" id="_9B62A4F9-2065-4D32-8A4A-57E001E476BA">
+    <variable id="_FD099764-F5F0-44D9-B145-175A1882DDD7" typeRef="tPerson" name="Member Result" />
+    <informationRequirement id="_685EAB71-6EA6-477D-9ABD-8A32E716537F">
+      <requiredDecision href="#_20AEAF97-9E3A-4CDC-A370-16D202A32608" />
+    </informationRequirement>
+    <informationRequirement id="_42B490CA-E6A5-405B-874C-071696353F7F">
+      <requiredInput href="#_80AD3D4B-EA00-4991-A5E4-B2E3C2EAFD45" />
+    </informationRequirement>
+    <literalExpression id="_F9AA5F73-6202-4C04-8AC4-F37659FD2917" typeRef="tPerson" label="Member Result">
+      <text>context put(New Member, &quot;isValid&quot;, Is Valid)</text>
+    </literalExpression>
+  </decision>
+  <inputData name="New Member" id="_80AD3D4B-EA00-4991-A5E4-B2E3C2EAFD45">
+    <variable name="New Member" id="_E522C1EC-D31C-404C-82FD-7AB7F4F2AB5B" typeRef="tPerson" />
+  </inputData>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_CF1597C0-4065-4D37-81DD-40F319272D9D" name="Default DRD" useAlternativeInputDataShape="false">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_5F84D6DF-BD3B-4CC1-A3B3-83960EB2EADB">
+            <kie:width>820</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_F9AA5F73-6202-4C04-8AC4-F37659FD2917">
+            <kie:width>522</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="_97BE6654-BCC8-4995-A88B-2A6B4261CE27" dmnElementRef="_80AD3D4B-EA00-4991-A5E4-B2E3C2EAFD45" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="560" y="700" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_7C02911A-3C71-4580-8AFF-5951D483C760" dmnElementRef="_20AEAF97-9E3A-4CDC-A370-16D202A32608" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="560" y="500" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_93D927F3-1578-4B25-9C76-866A3BAFB74F" dmnElementRef="_9B62A4F9-2065-4D32-8A4A-57E001E476BA" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="860" y="500" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_F12CEA02-DA83-4F43-86FD-92AA099D54CE-AUTO-TARGET" dmnElementRef="_5BD4CB7F-7E4F-47F1-99F0-F905206CA309" sourceElement="_97BE6654-BCC8-4995-A88B-2A6B4261CE27" targetElement="_7C02911A-3C71-4580-8AFF-5951D483C760">
+        <di:waypoint x="640" y="740" />
+        <di:waypoint x="640" y="540" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_1B8CB3B0-D8AE-42C3-BF43-43D42AC1AC30-AUTO-TARGET" dmnElementRef="_685EAB71-6EA6-477D-9ABD-8A32E716537F" sourceElement="_7C02911A-3C71-4580-8AFF-5951D483C760" targetElement="_93D927F3-1578-4B25-9C76-866A3BAFB74F">
+        <di:waypoint x="640" y="540" />
+        <di:waypoint x="940" y="540" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_8E3C64D6-380C-4076-875D-652B8CE18BC4" dmnElementRef="_42B490CA-E6A5-405B-874C-071696353F7F" sourceElement="_97BE6654-BCC8-4995-A88B-2A6B4261CE27" targetElement="_93D927F3-1578-4B25-9C76-866A3BAFB74F">
+        <di:waypoint x="640" y="740" />
+        <di:waypoint x="940" y="540" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
