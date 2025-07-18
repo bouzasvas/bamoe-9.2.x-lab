@@ -1,4 +1,4 @@
-package dto;
+package gr.eurobank.bamoe.lab.v1.dto;
 
 import java.time.LocalDate;
 

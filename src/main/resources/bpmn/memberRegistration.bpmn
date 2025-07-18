@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:bpsim="http://www.bpsim.org/schemas/1.0" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:drools="http://www.jboss.org/drools" id="_9-s2IEUuED6ujLtsCsSrww" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd http://www.omg.org/spec/DD/20100524/DC DC.xsd http://www.omg.org/spec/DD/20100524/DI DI.xsd " exporter="jBPM Process Modeler" exporterVersion="2.0" targetNamespace="http://www.omg.org/bpmn20">
-  <bpmn2:itemDefinition id="_newMemberItem" structureRef="dto.Person"/>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:bpsim="http://www.bpsim.org/schemas/1.0" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:drools="http://www.jboss.org/drools" id="_Gql6EUXxED6u_65s4JgB4Q" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd http://www.omg.org/spec/DD/20100524/DC DC.xsd http://www.omg.org/spec/DD/20100524/DI DI.xsd " exporter="jBPM Process Modeler" exporterVersion="2.0" targetNamespace="http://www.omg.org/bpmn20">
+  <bpmn2:itemDefinition id="_newMemberItem" structureRef="gr.eurobank.bamoe.lab.v1.dto.Person"/>
   <bpmn2:itemDefinition id="__F8847733-FB56-4748-84C5-BB29197740FE_SkippableInputXItem" structureRef="Object"/>
   <bpmn2:itemDefinition id="__F8847733-FB56-4748-84C5-BB29197740FE_PriorityInputXItem" structureRef="Object"/>
   <bpmn2:itemDefinition id="__F8847733-FB56-4748-84C5-BB29197740FE_CommentInputXItem" structureRef="Object"/>
@@ -22,12 +22,12 @@
   <bpmn2:itemDefinition id="__B9577966-2372-4163-8C08-1B2D0DDDDC5B_New-MemberInputXItem" structureRef="dto.Person"/>
   <bpmn2:itemDefinition id="__B9577966-2372-4163-8C08-1B2D0DDDDC5B_Member-ResultOutputXItem" structureRef="dto.Person"/>
   <bpmn2:error id="NotValidMember" errorCode="NotValidMember"/>
-  <bpmn2:collaboration id="_493290D6-0009-44B4-B032-52DECA4C3C91" name="Default Collaboration">
-    <bpmn2:participant id="_E1014766-45BE-46CD-BBD2-1ECF47330B48" name="Pool Participant" processRef="memberRegistration"/>
+  <bpmn2:collaboration id="_6BF73533-3E40-4489-B8A1-E96CB70AD204" name="Default Collaboration">
+    <bpmn2:participant id="_E0858408-D052-4B0A-AE47-5DC059B10ADA" name="Pool Participant" processRef="memberRegistration"/>
   </bpmn2:collaboration>
   <bpmn2:process id="memberRegistration" drools:packageName="gr.eurobank.bamoe.lab.v1" drools:version="1.0" drools:adHoc="false" name="memberRegistration" processType="Public">
     <bpmn2:extensionElements>
-      <drools:import name="dto.Person"/>
+      <drools:import name="gr.eurobank.bamoe.lab.v1.dto.Person"/>
     </bpmn2:extensionElements>
     <bpmn2:property id="newMember" itemSubjectRef="_newMemberItem" name="newMember"/>
     <bpmn2:sequenceFlow id="_66330C07-35EF-43C7-B461-4E37179B9C89" sourceRef="_98AE84D6-FD2C-42C6-833D-4ED28450498F" targetRef="_1F1FD1C4-70FA-46F7-BDE8-91F12B181708">
@@ -274,7 +274,7 @@
         </bpsim:Scenario>
       </bpsim:BPSimData>
     </bpmn2:extensionElements>
-    <bpmn2:source>_9-s2IEUuED6ujLtsCsSrww</bpmn2:source>
-    <bpmn2:target>_9-s2IEUuED6ujLtsCsSrww</bpmn2:target>
+    <bpmn2:source>_Gql6EUXxED6u_65s4JgB4Q</bpmn2:source>
+    <bpmn2:target>_Gql6EUXxED6u_65s4JgB4Q</bpmn2:target>
   </bpmn2:relationship>
 </bpmn2:definitions>
