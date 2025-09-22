@@ -45,6 +45,11 @@
   </dependencyManagement>
 
   <dependencies>
+    <dependency>
+      <groupId>gr.eurobank.cde</groupId>
+      <artifactId>cde-dmn-profile</artifactId>
+      <version>1.0.7-bamoe-SNAPSHOT</version>
+    </dependency>
 
     <!-- ILMT -->
     <dependency>

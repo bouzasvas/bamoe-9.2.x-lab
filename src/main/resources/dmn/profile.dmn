@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20230324/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/" namespace="https://kie.org/dmn/profile" id="profile" name="profile">
+  <itemDefinition id="_9F06B9F5-47E3-44F1-916E-3C77127FFFD4" name="tStringList" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+    <typeRef>string</typeRef>
+  </itemDefinition>
+  <decision name="NN Flatten" id="_A87DAE1F-D68D-40BE-AC13-B9B164C7F115">
+    <variable id="_BE3893EA-7CB2-4BA1-BDEE-4B50E8DE68DE" typeRef="tStringList" name="NN Flatten" />
+    <informationRequirement id="_265797AA-4E36-4EFE-95C9-EA437772F64E">
+      <requiredInput href="#_E4355904-EFFD-4C9B-AF53-94382EF7928B" />
+    </informationRequirement>
+    <literalExpression id="_2B263361-86C1-4127-A3FE-89E757C5EF47" typeRef="tStringList" label="NN Flatten">
+      <text>nn flatten(Input List)</text>
+    </literalExpression>
+  </decision>
+  <inputData name="Input List" id="_E4355904-EFFD-4C9B-AF53-94382EF7928B">
+    <variable name="Input List" id="_83B5AA40-5C87-41E4-AC35-AD98985BAEE5" typeRef="tStringList" />
+  </inputData>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_9493C989-5871-4730-8BB0-C7E18F24A3A1" name="Default DRD" useAlternativeInputDataShape="false">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_2B263361-86C1-4127-A3FE-89E757C5EF47">
+            <kie:width>352</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="_C80DB802-AA8B-4E6F-86AE-C9D60C89F22F" dmnElementRef="_E4355904-EFFD-4C9B-AF53-94382EF7928B" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="400" y="280" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_90C3DAE0-6EAE-4E37-859A-916029060874" dmnElementRef="_A87DAE1F-D68D-40BE-AC13-B9B164C7F115" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="400" y="60" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_6271D473-2224-40E9-9268-B1C5252E8ED9-AUTO-TARGET" dmnElementRef="_265797AA-4E36-4EFE-95C9-EA437772F64E" sourceElement="_C80DB802-AA8B-4E6F-86AE-C9D60C89F22F" targetElement="_90C3DAE0-6EAE-4E37-859A-916029060874">
+        <di:waypoint x="480" y="320" />
+        <di:waypoint x="480" y="100" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
